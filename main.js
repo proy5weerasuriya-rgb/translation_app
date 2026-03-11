@@ -7,6 +7,8 @@ const inputLabel = document.getElementById('input-label');
 const outputLabel = document.getElementById('output-label');
 const pulseDot = document.getElementById('pulse-dot');
 const statusText = document.getElementById('status-text');
+const webcamEl = document.getElementById('webcam');
+const subtitlesEl = document.getElementById('subtitles');
 
 let isEnToFi = true;
 let recognition;
@@ -14,7 +16,7 @@ let recognition;
 // Initialize Speech Recognition
 const initRecognition = () => {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  
+
   if (!SpeechRecognition) {
     statusText.innerText = "Speech API not supported";
     return;
@@ -45,8 +47,10 @@ const initRecognition = () => {
 
     if (finalTranscript) {
       transcriptEl.innerText = finalTranscript;
+      updateSubtitles(finalTranscript);
     } else {
       transcriptEl.innerText = interimTranscript || '...';
+      if (interimTranscript) updateSubtitles(interimTranscript);
     }
   };
 
@@ -74,9 +78,11 @@ const translateText = async (text) => {
   try {
     const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`);
     const data = await response.json();
-    
+
     if (data.responseData) {
-      translationEl.innerText = data.responseData.translatedText;
+      const translated = data.responseData.translatedText;
+      translationEl.innerText = translated;
+      updateSubtitles(translated, true);
     }
   } catch (error) {
     console.error('Translation error:', error);
@@ -84,10 +90,26 @@ const translateText = async (text) => {
   }
 };
 
+const updateSubtitles = (text, isTranslation = false) => {
+  if (!text) return;
+  subtitlesEl.innerText = text;
+  subtitlesEl.style.opacity = '1';
+};
+
+const initCamera = async () => {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+    webcamEl.srcObject = stream;
+  } catch (err) {
+    console.error("Camera access error:", err);
+    subtitlesEl.innerText = "Camera access denied or unavailable.";
+  }
+};
+
 const updateUI = () => {
   labelEn.classList.toggle('active', isEnToFi);
   labelFi.classList.toggle('active', !isEnToFi);
-  
+
   if (isEnToFi) {
     inputLabel.innerText = "Listening (English)";
     outputLabel.innerText = "Translation (Finnish)";
@@ -115,4 +137,5 @@ langToggle.addEventListener('change', () => {
 // Start the app
 window.addEventListener('DOMContentLoaded', () => {
   initRecognition();
+  initCamera();
 });

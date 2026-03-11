@@ -4,6 +4,7 @@ PramoVoice is a modern, real-time voice-activated translator that bridges the ga
 
 ## ✨ Features
 
+- **📹 Live Video Feed**: Integrated webcam support with real-time subtitle overlay.
 - **🎯 Real-time Voice Recognition**: Powered by the Web Speech API for high-accuracy live transcription.
 - **🔄 Bidirectional Translation**: Instant toggle between English-to-Finnish and Finnish-to-English translation.
 - **⚡ Zero Latency Feel**: Dynamic updates as you speak, with final translations appearing instantly upon pausing.
@@ -55,9 +56,9 @@ npm run build
 
 ## 📖 Usage
 
-1. **Grant Microphone Permission**: When prompted by your browser, allow the application to access your microphone.
+1. **Grant Permissions**: When prompted, allow access to both your **microphone** and **camera**.
 2. **Select Direction**: Use the toggle switch in the header to choose between "English" (translating to Finnish) and "Finnish" (translating to English).
-3. **Speak**: Simply start talking. The "Listening" box will show your transcript in real-time.
+3. **Speak**: Start talking. Your live video will appear along with real-time subtitles at the bottom.
 4. **Read Translation**: The "Translation" box will display the converted text as soon as you finish a sentence.
 5. **Monitor Status**: The pulsating dot in the status bar indicates when the application is actively listening.
 
