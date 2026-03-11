@@ -1,6 +1,6 @@
-# VoiceBridge | En-Fi Voice Translator
+# PramoVoice | En-Fi Voice Translator
 
-VoiceBridge is a modern, real-time voice-activated translator that bridges the gap between English and Finnish. Designed for seamless communication, it provides instant speech-to-text translation with minimal latency.
+PramoVoice is a modern, real-time voice-activated translator that bridges the gap between English and Finnish. Designed for seamless communication, it provides instant speech-to-text translation with minimal latency.
 
 ## ✨ Features
 
