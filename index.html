@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoiceBridge | En-Fi Translator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>VoiceBridge</h1>
+        <div class="controls">
+          <div class="toggle-container">
+            <span id="label-en" class="toggle-label active">English</span>
+            <label class="switch">
+              <input type="checkbox" id="lang-toggle">
+              <span class="slider"></span>
+            </label>
+            <span id="label-fi" class="toggle-label">Finnish</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="translator-body">
+        <div class="box">
+          <div class="box-label" id="input-label">Listening (English)</div>
+          <div id="transcript" class="content">...</div>
+        </div>
+        <div class="box">
+          <div class="box-label" id="output-label">Translation (Finnish)</div>
+          <div id="translation" class="content">...</div>
+        </div>
+      </div>
+
+      <div class="listening-overlay">
+        <div class="status-indicator">
+          <div id="pulse-dot" class="dot"></div>
+          <span id="status-text">Microphone Off</span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
