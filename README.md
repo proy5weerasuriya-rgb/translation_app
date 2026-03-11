@@ -1,5 +1,7 @@
 # PramoVoice | En-Fi Voice Translator
 
+**GitHub Repository:** [https://github.com/proy5weerasuriya-rgb/translation_app](https://github.com/proy5weerasuriya-rgb/translation_app)
+
 PramoVoice is a modern, real-time voice-activated translator that bridges the gap between English and Finnish. Designed for seamless communication, it provides instant speech-to-text translation with minimal latency.
 
 ## ✨ Features
