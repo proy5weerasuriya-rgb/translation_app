@@ -30,7 +30,7 @@ PramoVoice is a modern, real-time voice-activated translator that bridges the ga
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/proy5weerasuriya-rgb/translation_app.git
    cd translation_app
    ```
 
